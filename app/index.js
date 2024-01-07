@@ -1,9 +1,9 @@
 import { Redirect } from "expo-router"
 
-const noHead = { headerShown: false };
+
 
 const StartPage =()=>{
-  return <Redirect href="/login/login" options={noHead}/>
+  return <Redirect href="/kalender"/>
 }
 
 export default StartPage;

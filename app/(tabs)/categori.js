@@ -1,55 +1,53 @@
-import { View, Text, StatusBar, SafeAreaView } from 'react-native'
-import React, {useCallback} from 'react';
-import { NavbarTop, Categories, Task, Separator } from '../../components'
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+import React from 'react'
+import { Heading,View ,ScrollView} from 'native-base'
+import { NavbarTopNew, PrimaryButton ,Task,Separator} from '../../components'
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
+import Center from 'native-base/src/theme/components/center';
 
-const poppinsMedium = require('../../assets/fonts/Poppins-Medium.ttf');
-const poppinsSemiBold = require('../../assets/fonts/Poppins-SemiBold.ttf');
-const poppinsBold = require('../../assets/fonts/Poppins-Bold.ttf');
-
-SplashScreen.preventAutoHideAsync();
-
-const Categori = () => {
-  const [fontsLoaded] = useFonts({
-    'Poppins-Medium': poppinsMedium,
-    'Poppins-SemiBold': poppinsSemiBold,
-    'Poppins-Bold': poppinsBold,
-  });
-
-  
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
+const categori = () => {
   return (
-    <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-      <StatusBar backgroundColor="white" barStyle="dark-content"/>
-      <View style={{flex:1,backgroundColor:'white', marginTop:25, Bottom: 10}}>
-        <NavbarTop/> 
-        <Separator height={30}/>
-        <Categories/>
-      </View>
-      <View style={{padding:20, backgroundColor:'white', marginBottom: 40}}>
-        <Task/>
-          <Separator height={21}/>
-          <Task/>
-          <Separator height={21}/>
-          <Task/>
-          <Separator height={21}/>
-          <Task/>
-          <Separator height={21}/>
-          <Task/>
-          <Separator height={5}/>
+    <SafeAreaView style={{flex:1, backgroundColor:'#D5DEEF',}}>
+      <NavbarTopNew/>
+      <Heading mt={10} ml={5}>Kategori</Heading>
+      <View flexDirection={"row"}>
+        <View w={107} m={2}>
+          <PrimaryButton title={"Kuliah"} color={"#2196F3"} fs={16}/>
         </View>
+        <View w={107} m={2}>
+          <PrimaryButton title={"Kerja"} color={"#FF1493"}fs={16}/>
+        </View>
+        <View w={107} m={2}>
+          <PrimaryButton title={"Rumah"} color={"#30C10B"}fs={16}/>
+        </View>
+      </View>
+      
+      <Link href="/Arsip/Arsip" style={{textAlign:'center',justifyContent:'center'}}>
+        <View w={322}>
+          <PrimaryButton title={"Arsip"} color={"#FFBE55"}fs={16}/>
+        </View>
+      </Link>
+      <Separator height={20}/>
+      <ScrollView p={5}>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+        <Task title="Pengen ke bali"/>
+        <Separator height={5}/>
+      </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default Categori;
+export default categori

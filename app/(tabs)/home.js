@@ -1,30 +1,50 @@
-import { View, Text, StatusBar, SafeAreaView } from 'react-native'
-import React from 'react'
-import { Heading } from "native-base";
-import { NavbarTop,Task,Separator } from '../../components'
+import React,{useState} from 'react'
+import { NavbarTopNew, Separator, Task} from '../../components'
+import { ScrollView ,Box,Text, Center} from 'native-base';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import datas from '../../todolist'
 const Home = () => {
+  const [isHaveData, setisHaveData] = useState(false);
   return (
-    <SafeAreaView style={{flex:1, backgroundColor:'white',}}>
-      <StatusBar backgroundColor="white" barStyle="dark-content"/>
-      <View style={{flex:1,backgroundColor:'white', marginTop:25}}>
-        <NavbarTop/>
-      </View>
-      <View style={{padding:15}}>
-      <Task/>
-        <Separator height={21}/>
-        <Task/>
-        <Separator height={21}/>
-        <Task/>
-        <Separator height={21}/>
-        <Task/>
-        <Separator height={21}/>
-        <Task/>
-        <Separator height={21}/>
-        <Task/>
-        <Separator height={66}/>
-      </View>
+    <SafeAreaView style={{flex:1, backgroundColor:'#D5DEEF',}}>
+      <NavbarTopNew/>
+      <Box background={'white'} w={173} h={27} borderRadius={12} marginTop={3} marginLeft={2} alignItems={'center'} justifyContent={'center'}>
+            <Text fontSize={12} fontWeight={'semibold'}>Selasa, 24 Desember 2023</Text>
+      </Box>
+      {isHaveData ? (
+        <Center flex={1}>
+          <Text fontWeight={"bold"} fontSize={16}>TIDAK ADA TUGAS HARI INI</Text>
+        </Center>
+      ) : (
+<ScrollView padding={5}>
+        <Separator height={20}/>
+        <Task title={"Task1"}/>
+        <Separator height={5}/>
+        <Task title={"Task2"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+        <Task title={"pengen ke bali"}/>
+        <Separator height={5}/>
+      </ScrollView>
+      )}
     </SafeAreaView>
-    
   );
 };
 
